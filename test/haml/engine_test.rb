@@ -379,6 +379,10 @@ HTML
 HAML
   end
 
+  def test_no_interpolation_filter
+    assert_equal('foo #{bar} baz', render(':no_interpolation' + "\n" + '  foo #{bar} baz'))
+  end
+
   def test_multiline_in_filter
     assert_equal(<<HTML, render(<<HAML))
 Foo |
